@@ -51,7 +51,7 @@ func NewSave(log *slog.Logger, taskSave TaskSaver) http.HandlerFunc {
 		log.Info("request body decoded", slog.Any("request", req))
 
 		if err := validateSaveRequest(&req); err != nil {
-			 http.Error(w, "need task name", http.StatusUnavailableForLegalReasons)
+			 http.Error(w, "need task name", http.StatusBadRequest)
 			 return 
 		}
 
